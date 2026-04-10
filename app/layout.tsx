@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter, Poppins, Roboto } from 'next/font/google'
 import './globals.css'
 
-
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -33,16 +32,15 @@ export const metadata: Metadata = {
   authors: [{ name: 'FoodLab' }],
   creator: 'FoodLab',
   publisher: 'FoodLab',
+
   icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/logo-icon.svg', type: 'image/svg+xml' },
-    ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    icon: '/icon.png',       
+    // apple: '/icon.png',
   },
+  
+  
   manifest: '/manifest.json',
+  
   openGraph: {
     title: 'FoodLab - Food Delivery in Bangladesh',
     description: 'Order delicious food from top restaurants near you',
@@ -50,7 +48,7 @@ export const metadata: Metadata = {
     siteName: 'FoodLab',
     images: [
       {
-        url: '/og-image.png',
+        url: '/FoodLabLogo.png',     
         width: 1200,
         height: 630,
         alt: 'FoodLab - Food Delivery',
@@ -59,12 +57,14 @@ export const metadata: Metadata = {
     locale: 'bn_BD',
     type: 'website',
   },
+  
   twitter: {
     card: 'summary_large_image',
     title: 'FoodLab - Food Delivery',
     description: 'Order food online from best restaurants',
-    images: ['/og-image.png'],
+    images: ['/logo.png'],    // logo.png ইউজ করবে
   },
+  
   robots: {
     index: true,
     follow: true,

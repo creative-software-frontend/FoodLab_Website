@@ -19,8 +19,8 @@ export const brandColors = {
 
 // Gradient Utilities
 export const gradients = {
-  primary: 'bg-gradient-to-r from-brand-primary to-foodi-orange',
-  secondary: 'bg-gradient-to-r from-gray-700 to-gray-900',
+  primary: 'bg-gradient-brand',
+  secondary: 'bg-gradient-brand-dark',
   accent: 'bg-gradient-to-r from-green-400 to-green-600',
   hero: 'bg-gradient-to-br from-orange-50 to-white',
 } as const
