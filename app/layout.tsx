@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Poppins, Roboto } from 'next/font/google'
 import './globals.css'
+import { Footer } from '@/components/shared/Footer'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -84,6 +85,7 @@ export default function RootLayout({
     <html lang="bn" className={`${poppins.variable} ${inter.variable} ${roboto.variable}`}>
       <body className={poppins.className}>
         {children}
+      <Footer/>
       </body>
     </html>
   )

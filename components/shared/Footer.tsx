@@ -17,33 +17,33 @@ const companyLinks: FooterLink[] = [
   { label: 'About us', href: '/about' },
   { label: 'Contact us', href: '/contact' },
   { label: 'Press', href: '/press' },
-  { label: 'How food works', href: '/how-it-works' },
-  { label: 'Download apps', href: '/download' },
+  { label: 'How food works', href: '/how-food-works' },
+  { label: 'Download apps', href: '/download-apps' },
   { label: 'Careers', href: '/careers' },
-  { label: 'Help & support', href: '/support' },
+  { label: 'Help & support', href: '/help-support' },
 ];
 
 // Services Links 
 const servicesLinks: FooterLink[] = [
-  { label: 'Food delivery', href: '/services/delivery' },
-  { label: 'Pick-up', href: '/services/pickup' },
-  { label: 'Flowers delivery', href: '/services/flowers' },
-  { label: 'Super food subscription', href: '/services/subscription' },
-  { label: 'Food deals', href: '/deals' },
-  { label: 'Reward programmes', href: '/rewards' },
-  { label: 'Terms Of Referral', href: '/terms/referral' },
+  { label: 'Food delivery', href: '/food-delivery' },
+  { label: 'Pick-up', href: '/pickup' },
+  { label: 'Flowers delivery', href: '/flowers-delivery' },
+  { label: 'Super food subscription', href: '/super-food-subscription' },
+  { label: 'Food deals', href: '/food-deals' },
+  { label: 'Reward programmes', href: '/reward-programmes' },
+  { label: 'Terms Of Referral', href: '/terms-of-referral' },
 ];
 
 // Partners Links
 const partnerLinks: FooterLink[] = [
-  { label: 'Partner with us', href: '/partner' },
-  { label: 'Ride with us', href: '/rider' },
-  { label: 'Terms & conditions', href: '/terms' },
-  { label: 'Refund & cancellation', href: '/refund' },
-  { label: 'Privacy policy', href: '/privacy' },
-  { label: 'Rider Privacy policy', href: '/privacy/rider' },
-  { label: 'Partner Privacy policy', href: '/privacy/partner' },
-  { label: 'Security policy', href: '/security' },
+  { label: 'Partner with us', href: '/partner-with-us' },
+  { label: 'Ride with us', href: '/ride-with-us' },
+  { label: 'Terms & conditions', href: '/terms-conditions' },
+  { label: 'Refund & cancellation', href: '/refund-cancellation' },
+  { label: 'Privacy policy', href: '/privacy-policy' },
+  { label: 'Rider Privacy policy', href: '/rider-privacy-policy' },
+  { label: 'Partner Privacy policy', href: '/partner-privacy-policy' },
+  { label: 'Security policy', href: '/security-policy' },
 ];
 
 const socialLinks = [
@@ -213,10 +213,10 @@ export function Footer() {
               &copy; Copyright 2026 FoodLab Express Limited. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm">
-              <Link href="/privacy" className="text-gray-400 hover:text-brand-primary transition-colors">
+              <Link href="/privacy-policy" className="text-gray-400 hover:text-brand-primary transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-brand-primary transition-colors">
+              <Link href="/terms-conditions" className="text-gray-400 hover:text-brand-primary transition-colors">
                 Terms of Service
               </Link>
               <Link href="/cookies" className="text-gray-400 hover:text-brand-primary transition-colors">

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { Logo } from '@/components/shared/Logo';
 import { Container } from '@/components/shared/Container';
 import { Section } from '@/components/shared/Section';
-import { Footer } from '@/components/shared/Footer';
 import { Button } from '@/components/ui/button';
 import {
   MapPin,
@@ -431,8 +430,6 @@ export default function LandingPage() {
         </Container>
       </Section>
 
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }
