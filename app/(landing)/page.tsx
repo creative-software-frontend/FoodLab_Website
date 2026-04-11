@@ -106,40 +106,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navbar */}
-      <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
-        <Container>
-          <div className="flex items-center justify-between h-16 md:h-20">
-            <Logo size="md" />
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
-              <Link href="/" className="text-brand-secondary hover:text-brand-primary transition-colors font-medium">
-                Home
-              </Link>
-              <Link href="/restaurants" className="text-brand-secondary hover:text-brand-primary transition-colors font-medium">
-                Restaurants
-              </Link>
-              <Link href="/partner" className="text-brand-secondary hover:text-brand-primary transition-colors font-medium">
-                Partner
-              </Link>
-              <Link href="/become-hero" className="text-brand-secondary hover:text-brand-primary transition-colors font-medium">
-                Become a Hero
-              </Link>
-            </div>
-
-            {/* Auth Buttons */}
-            <div className="flex items-center gap-3">
-              <Button variant="outline" className="hidden sm:flex">
-                Sign In
-              </Button>
-              <Button className="bg-brand-primary hover:bg-brand-primary/90">
-                Sign Up
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </nav>
+      
 
       {/* Hero Section */}
       <Section background="white" className="py-16 md:py-24">
