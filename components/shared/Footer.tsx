@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Logo } from './Logo';
 import { Container } from './Container';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import { FaGooglePlay, FaApple } from 'react-icons/fa';
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 
 interface FooterLink {
@@ -11,11 +12,7 @@ interface FooterLink {
   href: string;
 }
 
-interface FooterSection {
-  title: string;
-  links: FooterLink[];
-}
-
+// Company Links
 const companyLinks: FooterLink[] = [
   { label: 'About us', href: '/about' },
   { label: 'Contact us', href: '/contact' },
@@ -26,6 +23,7 @@ const companyLinks: FooterLink[] = [
   { label: 'Help & support', href: '/support' },
 ];
 
+// Services Links 
 const servicesLinks: FooterLink[] = [
   { label: 'Food delivery', href: '/services/delivery' },
   { label: 'Pick-up', href: '/services/pickup' },
@@ -33,9 +31,10 @@ const servicesLinks: FooterLink[] = [
   { label: 'Super food subscription', href: '/services/subscription' },
   { label: 'Food deals', href: '/deals' },
   { label: 'Reward programmes', href: '/rewards' },
-  { label: 'Terms Of Referral and Condition', href: '/terms/referral' },
+  { label: 'Terms Of Referral', href: '/terms/referral' },
 ];
 
+// Partners Links
 const partnerLinks: FooterLink[] = [
   { label: 'Partner with us', href: '/partner' },
   { label: 'Ride with us', href: '/rider' },
@@ -58,82 +57,74 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-brand-secondary text-white">
+    <footer className="bg-white border-t border-gray-200">
       <Container maxWidth="2xl">
         {/* Main Footer Content */}
         <div className="py-12 md:py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
-            {/* Logo & Description Section */}
-            <div className="lg:col-span-1">
-              <Logo variant="light" size="md" className="mb-4" />
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Order food from the best restaurants and shops with FoodLab Bangladesh. 
-                Bangladesh&apos;s leading food delivery app with over 10,000+ restaurants 
-                along with amazing deals and services.
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
+
+            {/* Column 1: Logo & Info */}
+            <div className="lg:col-span-3">
+              <Logo variant="dark" size="md" className="mb-4" />
+              <p className="text-gray-500 text-sm leading-relaxed mb-4">
+                Order food from the best restaurants and shops with FoodLab Bangladesh.
+                Bangladesh's leading food delivery app with over 10,000+ restaurants.
               </p>
-              
-              {/* Social Media Icons */}
-              <div className="flex items-center gap-3 mb-6">
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-brand-primary transition-colors"
-                      aria-label={social.label}
-                    >
-                      <Icon className="w-4 h-4" />
-                    </a>
-                  );
-                })}
+
+              {/* Social Icons - No emoji */}
+              <div className="mb-4">
+                <h4 className="text-gray-400 text-xs uppercase tracking-wider mb-3">Follow Us</h4>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {socialLinks.map((social) => {
+                    const Icon = social.icon;
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-brand-primary hover:text-white hover:scale-110 transition-all duration-300 text-gray-500"
+                        aria-label={social.label}
+                      >
+                        <Icon className="w-4 h-4" />
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
 
-              {/* Contact Info */}
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-brand-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Hotline</p>
-                    <a href="tel:+8801234567890" className="text-sm hover:text-brand-primary transition-colors">
-                      +880 1234-567890
-                    </a>
-                  </div>
+              {/* Contact Info - No emoji */}
+              <div className="space-y-2">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 text-brand-primary flex-shrink-0" />
+                  <a href="tel:+8801234567890" className="text-sm text-gray-500 hover:text-brand-primary transition-colors">
+                    +880 1234-567890
+                  </a>
                 </div>
-                <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-brand-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Email</p>
-                    <a href="mailto:support@foodlab.com" className="text-sm hover:text-brand-primary transition-colors">
-                      support@foodlab.com
-                    </a>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-brand-primary flex-shrink-0" />
+                  <a href="mailto:support@foodlab.com" className="text-sm text-gray-500 hover:text-brand-primary transition-colors">
+                    support@foodlab.com
+                  </a>
                 </div>
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-brand-primary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Corporate Office</p>
-                    <p className="text-sm text-gray-400">
-                      House 123, Road 456<br />
-                      Banani, Dhaka 1213<br />
-                      Bangladesh
-                    </p>
-                  </div>
+                <div className="flex items-start gap-2">
+                  <MapPin className="w-4 h-4 text-brand-primary flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    House 123, Road 456, Banani, Dhaka
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Company Links */}
-            <div>
-              <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
-              <ul className="space-y-3">
+            {/* Column 2: Company Links */}
+            <div className="lg:col-span-2">
+              <h3 className="text-brand-secondary font-semibold text-base mb-4">Company</h3>
+              <ul className="space-y-2">
                 {companyLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-gray-400 hover:text-brand-primary transition-colors text-sm"
+                      className="text-gray-500 hover:text-brand-primary transition-colors text-sm"
                     >
                       {link.label}
                     </Link>
@@ -142,15 +133,15 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Services Links */}
-            <div>
-              <h3 className="text-white font-semibold text-lg mb-4">Services</h3>
-              <ul className="space-y-3">
+            {/* Column 3: Services Links - Single column (no grid) */}
+            <div className="lg:col-span-2">
+              <h3 className="text-brand-secondary font-semibold text-base mb-4">Services</h3>
+              <ul className="space-y-2">
                 {servicesLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-gray-400 hover:text-brand-primary transition-colors text-sm"
+                      className="text-gray-500 hover:text-brand-primary transition-colors text-sm"
                     >
                       {link.label}
                     </Link>
@@ -159,15 +150,15 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Partner Links */}
-            <div>
-              <h3 className="text-white font-semibold text-lg mb-4">Partners</h3>
-              <ul className="space-y-3">
+            {/* Column 4: Partners Links */}
+            <div className="lg:col-span-2">
+              <h3 className="text-brand-secondary font-semibold text-base mb-4">Partners</h3>
+              <ul className="space-y-2">
                 {partnerLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-gray-400 hover:text-brand-primary transition-colors text-sm"
+                      className="text-gray-500 hover:text-brand-primary transition-colors text-sm"
                     >
                       {link.label}
                     </Link>
@@ -176,27 +167,39 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Download Apps (Additional Column) */}
-            <div>
-              <h3 className="text-white font-semibold text-lg mb-4">Download App</h3>
+            {/* Column 5: Download App */}
+            <div className="lg:col-span-3">
+              <h3 className="text-brand-secondary font-semibold text-base mb-4">Download App</h3>
               <div className="space-y-3">
                 <a
                   href="https://play.google.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block bg-white/10 hover:bg-brand-primary transition-colors rounded-lg p-3"
+                  className="flex items-center gap-3 bg-gray-100 hover:bg-brand-primary hover:text-white transition-colors rounded-lg p-3 group"
                 >
-                  <div className="text-xs text-gray-400">Get it on</div>
-                  <div className="font-semibold text-sm">Google Play</div>
+                  {/* Google Play Icon */}
+                  <div className="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 group-hover:bg-white/20 group-hover:text-white transition-colors">
+                    <FaGooglePlay className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500 group-hover:text-white/70">Get it on</div>
+                    <div className="font-semibold text-sm">Google Play</div>
+                  </div>
                 </a>
                 <a
                   href="https://apps.apple.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block bg-white/10 hover:bg-brand-primary transition-colors rounded-lg p-3"
+                  className="flex items-center gap-3 bg-gray-100 hover:bg-brand-primary hover:text-white transition-colors rounded-lg p-3 group"
                 >
-                  <div className="text-xs text-gray-400">Download on the</div>
-                  <div className="font-semibold text-sm">App Store</div>
+                  {/* Apple App Store Icon */}
+                  <div className="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 group-hover:bg-white/20 group-hover:text-white transition-colors">
+                    <FaApple className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-500 group-hover:text-white/70">Download on the</div>
+                    <div className="font-semibold text-sm">App Store</div>
+                  </div>
                 </a>
               </div>
             </div>
@@ -204,7 +207,7 @@ export function Footer() {
         </div>
 
         {/* Copyright Section */}
-        <div className="border-t border-white/10 py-6">
+        <div className="border-t border-gray-200 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-gray-400 text-sm text-center md:text-left">
               &copy; Copyright 2026 FoodLab Express Limited. All rights reserved.

@@ -24,7 +24,9 @@ import {
   Store,
 } from 'lucide-react';
 
-// Restaurant data (ইমেজ সরিয়ে দেওয়া হয়েছে)
+import { FaGooglePlay, FaApple } from 'react-icons/fa';
+
+// Restaurant data 
 const restaurants = [
   {
     id: 1,
@@ -110,7 +112,7 @@ export default function LandingPage() {
         <Container>
           <div className="flex items-center justify-between h-16 md:h-20">
             <Logo size="md" />
-            
+
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               <Link href="/" className="text-brand-secondary hover:text-brand-primary transition-colors font-medium">
@@ -158,17 +160,17 @@ export default function LandingPage() {
               <ChevronDown className="w-4 h-4 text-gray-400" />
             </div>
 
-            {/* Search Bar */}
+            {/* Search Bar - Fully responsive same height */}
             <div className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto mb-8">
               <div className="flex-1 relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
                   type="text"
                   placeholder="Search for food, restaurants..."
-                  className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:border-brand-primary focus:outline-none transition-colors"
+                  className="w-full pl-12 pr-4 border-2 border-gray-200 rounded-xl focus:border-brand-primary focus:outline-none transition-colors h-14 text-base"
                 />
               </div>
-              <Button className="bg-brand-primary hover:bg-brand-primary/90 px-8 py-4 text-lg font-semibold">
+              <Button className="bg-brand-primary hover:bg-brand-primary/90 px-8 text-base font-semibold rounded-xl h-14">
                 Find Food
               </Button>
             </div>
@@ -181,11 +183,10 @@ export default function LandingPage() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveService(tab.id)}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
-                      activeService === tab.id
-                        ? 'bg-brand-primary text-white shadow-lg'
-                        : 'bg-white text-brand-secondary border-2 border-gray-200 hover:border-brand-primary'
-                    }`}
+                    className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${activeService === tab.id
+                      ? 'bg-brand-primary text-white shadow-lg'
+                      : 'bg-white text-brand-secondary border-2 border-gray-200 hover:border-brand-primary'
+                      }`}
                   >
                     <Icon className="w-5 h-5" />
                     {tab.label}
@@ -205,7 +206,7 @@ export default function LandingPage() {
               List Your Restaurant on FoodLab
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Would you like millions of new customers to enjoy your amazing food and groceries? 
+              Would you like millions of new customers to enjoy your amazing food and groceries?
               Let's start our partnership today!
             </p>
             <Button className="bg-brand-secondary hover:bg-brand-secondary/90 px-8 py-6 text-lg font-semibold">
@@ -226,7 +227,7 @@ export default function LandingPage() {
               </h2>
             </div>
             <p className="text-lg text-gray-600 mb-8">
-              Are you a man of speed and a master of navigation? Become a FoodLab hero and earn up to 
+              Are you a man of speed and a master of navigation? Become a FoodLab hero and earn up to
               25,000 TK each month while spreading joy to the doorsteps.
             </p>
             <Button className="bg-brand-primary hover:bg-brand-primary/90 px-8 py-6 text-lg font-semibold">
@@ -334,38 +335,52 @@ export default function LandingPage() {
       {/* App Download Section */}
       <Section background="white">
         <Container>
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto ">
             <div className="bg-gradient-to-r from-brand-primary/10 to-brand-accent/10 rounded-3xl p-8 md:p-12 shadow-xl">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <Smartphone className="w-16 h-16 text-brand-primary mb-6" />
                   <h2 className="text-3xl md:text-4xl font-bold text-brand-secondary mb-4">
                     For better experience, Download the FoodLab app now
                   </h2>
                   <p className="text-gray-600 mb-6">
                     Get exclusive deals, faster checkout, and real-time order tracking.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button className="bg-brand-secondary hover:bg-brand-secondary/90 flex items-center gap-3 px-6 py-4">
-                      <ExternalLink className="w-5 h-5" />
-                      <div className="text-left">
-                        <div className="text-xs">Get it on</div>
-                        <div className="font-semibold">Google Play</div>
+                  <div className="space-y-3">
+                    <a
+                      href="https://play.google.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 bg-gray-100 hover:bg-brand-primary hover:text-white transition-colors rounded-lg p-3 group"
+                    >
+                      {/* Google Play Icon */}
+                      <div className="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center text-gray-600 group-hover:bg-white/20 group-hover:text-white transition-colors">
+                        <FaGooglePlay className="w-5 h-5" />
                       </div>
-                    </Button>
-                    <Button className="bg-brand-secondary hover:bg-brand-secondary/90 flex items-center gap-3 px-6 py-4">
-                      <ExternalLink className="w-5 h-5" />
-                      <div className="text-left">
-                        <div className="text-xs">Download on the</div>
-                        <div className="font-semibold">App Store</div>
+                      <div>
+                        <div className="text-xs text-gray-500 group-hover:text-white/70">Get it on</div>
+                        <div className="font-semibold text-sm">Google Play</div>
                       </div>
-                    </Button>
+                    </a>
+                    <a
+                      href="https://apps.apple.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 bg-gray-100 hover:bg-brand-primary hover:text-white transition-colors rounded-lg p-3 group"
+                    >
+                      {/* Apple App Store Icon */}
+                      <div className="w-8 h-8 bg-gray-200 rounded-lg bg-brand-primary flex items-center justify-center text-gray-600 group-hover:bg-white/20 group-hover:text-white transition-colors">
+                        <FaApple className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="text-xs text-gray-500 group-hover:text-white/70">Download on the</div>
+                        <div className="font-semibold text-sm">App Store</div>
+                      </div>
+                    </a>
                   </div>
                 </div>
                 <div className="flex justify-center">
-                  <div className="bg-white w-48 h-48 flex items-center justify-center rounded-2xl shadow-lg">
+                  <div className="bg-brand-primary w-48 h-48 flex items-center justify-center rounded-2xl shadow-lg">
                     <div className="text-center">
-                      <Smartphone className="w-16 h-16 text-brand-primary mx-auto mb-2" />
                       <p className="text-sm text-gray-500">Scan to Download</p>
                     </div>
                   </div>
