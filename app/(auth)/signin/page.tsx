@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Mail, Phone, Lock, Eye, EyeOff, ArrowRight, ChevronLeft, ShieldCheck, Smartphone } from 'lucide-react';
 
@@ -18,7 +18,7 @@ export default function SignInPage() {
   const [forgotStep, setForgotStep] = useState<ForgotStep>('input-mobile');
   const [showPassword, setShowPassword] = useState(false);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0, x: 20 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
     exit: { opacity: 0, x: -20, transition: { duration: 0.3 } }

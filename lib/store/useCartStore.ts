@@ -20,6 +20,9 @@ interface CartStore {
   clearRestaurantCart: (restaurantId: number) => void;
   getTotalItems: () => number;
   getTotalPrice: () => number;
+  isDrawerOpen: boolean;
+  openDrawer: () => void;
+  closeDrawer: () => void;
 }
 
 export const useCartStore = create<CartStore>()(
@@ -35,9 +38,10 @@ export const useCartStore = create<CartStore>()(
             items: currentItems.map((i) =>
               i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
             ),
+            isDrawerOpen: true,
           });
         } else {
-          set({ items: [...currentItems, { ...item, quantity: 1 }] });
+          set({ items: [...currentItems, { ...item, quantity: 1 }], isDrawerOpen: true });
         }
       },
       removeItem: (id) => {
@@ -58,6 +62,9 @@ export const useCartStore = create<CartStore>()(
       },
       getTotalItems: () => get().items.reduce((acc, item) => acc + item.quantity, 0),
       getTotalPrice: () => get().items.reduce((acc, item) => acc + item.price * item.quantity, 0),
+      isDrawerOpen: false,
+      openDrawer: () => set({ isDrawerOpen: true }),
+      closeDrawer: () => set({ isDrawerOpen: false }),
     }),
     {
       name: 'foodlab-cart',
