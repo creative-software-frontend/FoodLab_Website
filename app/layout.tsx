@@ -36,13 +36,13 @@ export const metadata: Metadata = {
   publisher: 'FoodLab',
 
   icons: {
-    icon: '/icon.png',       
+    icon: '/icon.png',
     // apple: '/icon.png',
   },
-  
-  
+
+
   manifest: '/manifest.json',
-  
+
   openGraph: {
     title: 'FoodLab - Food Delivery in Bangladesh',
     description: 'Order delicious food from top restaurants near you',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     siteName: 'FoodLab',
     images: [
       {
-        url: '/FoodLabLogo.png',     
+        url: '/FoodLabLogo.png',
         width: 1200,
         height: 630,
         alt: 'FoodLab - Food Delivery',
@@ -59,14 +59,14 @@ export const metadata: Metadata = {
     locale: 'bn_BD',
     type: 'website',
   },
-  
+
   twitter: {
     card: 'summary_large_image',
     title: 'FoodLab - Food Delivery',
     description: 'Order food online from best restaurants',
     images: ['/logo.png'],    // logo.png ইউজ করবে
   },
-  
+
   robots: {
     index: true,
     follow: true,
@@ -85,9 +85,9 @@ export default function RootLayout({
   return (
     <html lang="bn" className={`${poppins.variable} ${inter.variable} ${roboto.variable}`}>
       <body className={poppins.className}>
-        <Navbar/>
+        <Navbar />
         {children}
-      <Footer/>
+        <Footer />
       </body>
     </html>
   )

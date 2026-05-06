@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingCart } from 'lucide-react';
+import { useCartStore } from '@/lib/store/useCartStore';
 import { Logo } from './Logo';
 import { Container } from './Container';
 import { Button } from '@/components/ui/button';
@@ -21,6 +22,7 @@ const navLinks: NavLink[] = [
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const cartCount = useCartStore((state) => state.getTotalItems());
 
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
@@ -42,14 +44,28 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Auth Buttons - Desktop */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button variant="outline" className="border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white">
-              Sign In
-            </Button>
-            <Button className="bg-brand-primary hover:bg-brand-primary/90 text-white">
-              Sign Up
-            </Button>
+          {/* Auth & Cart - Desktop */}
+          <div className="hidden md:flex items-center gap-6">
+            <Link href="/cart" className="relative p-2 text-gray-600 hover:text-brand-primary transition-colors">
+              <ShoppingCart className="w-6 h-6" />
+              {cartCount > 0 && (
+                <span className="absolute top-0 right-0 bg-brand-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full ring-2 ring-white animate-in zoom-in duration-300">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+            <div className="flex items-center gap-3 border-l border-gray-100 pl-6">
+              <Link href="/signin">
+                <Button variant="outline" className="border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white transition-all duration-300">
+                  Sign In
+                </Button>
+              </Link>
+              <Link href="/signup">
+                <Button className="bg-brand-primary hover:bg-brand-primary/90 text-white shadow-md shadow-brand-primary/20 transition-all duration-300">
+                  Sign Up
+                </Button>
+              </Link>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -71,18 +87,22 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-gray-600 hover:text-brand-primary transition-colors font-medium py-2"
+                  className="text-lg font-bold text-gray-600 hover:text-brand-primary transition-colors py-2 border-b border-gray-50"
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="flex flex-col gap-2 pt-2">
-                <Button variant="outline" className="w-full border-brand-primary text-brand-primary">
-                  Sign In
-                </Button>
-                <Button className="w-full bg-brand-primary hover:bg-brand-primary/90 text-white">
-                  Sign Up
-                </Button>
+              <div className="flex flex-col gap-4 pt-4">
+                <Link href="/signin" onClick={() => setIsMenuOpen(false)}>
+                  <Button className="w-full py-6 bg-brand-primary text-white font-bold rounded-xl">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link href="/signup" onClick={() => setIsMenuOpen(false)}>
+                  <Button variant="outline" className="w-full py-6 border-brand-primary text-brand-primary font-bold rounded-xl">
+                    Sign Up
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

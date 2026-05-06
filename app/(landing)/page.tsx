@@ -106,7 +106,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      
+
 
       {/* Hero Section */}
       <Section background="white" className="py-16 md:py-24">
@@ -175,7 +175,7 @@ export default function LandingPage() {
               Would you like millions of new customers to enjoy your amazing food and groceries?
               Let's start our partnership today!
             </p>
-            <Button className="bg-brand-secondary hover:bg-brand-secondary/90 px-8 py-6 text-lg font-semibold">
+            <Button className="bg-brand-primary  hover:bg-brand-primary/90 px-8 py-6 text-lg font-semibold">
               Become a Partner
             </Button>
           </div>
@@ -258,16 +258,18 @@ export default function LandingPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {restaurants.map((restaurant) => (
-              <div
+              <Link
                 key={restaurant.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all cursor-pointer group"
+                href={`/restaurants/${restaurant.id}`}
+                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all cursor-pointer group border border-gray-100"
               >
                 {/* ইমেজের জায়গায় প্লেসহোল্ডার */}
-                <div className="relative h-48 bg-gradient-to-r from-brand-primary/20 to-brand-accent/20 flex items-center justify-center">
-                  <Store className="w-16 h-16 text-brand-primary/50" />
+                <div className="relative h-48 bg-gray-50 flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-accent/5" />
+                  <Store className="w-16 h-16 text-brand-primary/30 group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div className="p-5">
-                  <h3 className="text-xl font-bold text-brand-secondary mb-2">
+                  <h3 className="text-xl font-bold text-brand-secondary mb-2 group-hover:text-brand-primary transition-colors">
                     {restaurant.name}
                   </h3>
                   <p className="text-gray-600 text-sm mb-3">{restaurant.cuisine}</p>
@@ -286,7 +288,7 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
