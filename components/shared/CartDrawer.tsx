@@ -4,6 +4,7 @@ import { useCartStore, CartItem } from '@/lib/store/useCartStore';
 import { Button } from '@/components/ui/button';
 import { ShoppingBasket, Plus, Minus, Trash2, X, ChevronRight, ShoppingBag, Store } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useMemo } from 'react';
 
